@@ -3,7 +3,7 @@ FROM maven:3.9.9-eclipse-temurin-17 AS build
 WORKDIR /build
 
 # Copy Maven files
-COPY pom.xml
+COPY pom.xml .
 COPY src ./src
 
 # Build the application
@@ -21,6 +21,7 @@ EXPOSE 8080
 
 # Run the application
 ENTRYPOINT ["java","-jar","chatbot-backend-0.0.1-SNAPSHOT.jar"]
+
 
 
 
