@@ -7,7 +7,7 @@ COPY chatbot-backend/pom.xml .
 COPY chatbot-backend/src ./src
 
 # Build the application
-RUN mvn clean install -DskipTests
+RUN mvn clean package -Dmaven.test.skip=true
 
 # ---------- Runtime stage ----------
 FROM eclipse-temurin:17-jdk-alpine
@@ -21,6 +21,7 @@ EXPOSE 8080
 
 # Run the application
 ENTRYPOINT ["java","-jar","chatbot-backend-0.0.1-SNAPSHOT.jar"]
+
 
 
 
